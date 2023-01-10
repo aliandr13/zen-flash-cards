@@ -1,0 +1,74 @@
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+body {
+  padding-top: 56px;
+}
+
+.container {
+  max-width: 1024px;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.bg-blue { background-color: #124; }
+
+blockquote {
+    padding-left: 16px;
+    border-left: 3px solid #007bff;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.card{
+    border:none;
+    padding: 20px;
+    background-color: #1c1e21;
+    color: #fff;
+}
+
+.form-input{
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.form-input i{
+    position: absolute;
+    font-size: 18px;
+    top: 15px;
+    left: 10px;
+}
+
+.form-control{
+    height: 50px;
+    background-color: #1c1e21;
+    text-indent: 24px;
+    font-size: 15px;
+    color: #ddd;
+}
+
+.form-control:focus{
+    background-color: #25272a;
+    box-shadow: none;
+    color: #fff;
+    border-color: #4f63e7;
+}
+
+.form-check-label{
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+.signup{
+  height: 50px;
+  font-size: 14px;
+  width: 100%;
+}

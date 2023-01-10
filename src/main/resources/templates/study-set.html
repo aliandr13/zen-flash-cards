@@ -1,0 +1,67 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#712cf9">
+
+    <title>Flash cards - Create study set</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body class="d-flex flex-column h-100 text-bg-dark">
+
+<div th:replace="~{home :: header}">...</div>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+        <div class="d-flex align-items-center p-3 my-3 text-white bg-blue rounded shadow-sm">
+            <img class="me-3" th:src="@{/favicon.ico}" src="#" alt="" width="48" height="38">
+            <div class="lh-1">
+                <h1 class="h6 mb-0 text-white lh-1">Study sets Name</h1>
+                <small th:text="${setId}">Study sets</small>
+            </div>
+        </div>
+
+        <div class="my-3 p-3 card rounded shadow-sm">
+            <h6 class="border-bottom pb-2 mb-0">Cards:</h6>
+
+            <div th:each="card: ${cards}">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-4" th:text="${card.term}">Card name 1</div>
+                            <div class="col-md-4" th:text="${card.definition}">Card description 1</div>
+                            <div class="col-md-4" th:text="${card.description}">Something 1</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">Actions 1</div>
+                </div>
+            </div>
+
+
+            <small class="d-block text-end mt-3">
+                <div th:if="${cards.empty}">
+                    No cards yet, create one.
+                </div>
+                <a th:href="@{/set/{id}/card(id=${setId})}" href="#">Add card</a>
+            </small>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{home :: footer}">...</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
