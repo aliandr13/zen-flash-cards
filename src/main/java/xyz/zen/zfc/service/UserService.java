@@ -29,13 +29,6 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.passwordEncoder = passwordEncoder;
-        this.createUser(User.builder()
-                .username("admin-user")
-                .enabled(true)
-                .role(Role.ADMIN)
-                .password("password")
-                .email("admin@email.com")
-                .build());
     }
 
     public User getById(final UUID id) {
