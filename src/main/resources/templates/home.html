@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en"
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
       class="h-100">
 <head>
     <meta charset="utf-8">
@@ -18,26 +18,23 @@
 
 <header th:fragment="header">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-blue" aria-label="Main navigation"
-         th:fragment="navbar">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-blue">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/home}" href="#">Flash cards</a>
-            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
-                    aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" th:href="@{/study-set}" href="#">Create set</a>
+                        <a class="nav-link active" th:href="@{/home}" aria-current="page" href="#">Home</a>
                     </li>
-                    <li>
-                        <a class="nav-link" aria-current="page" th:href="@{/card}" href="#">Add card</a>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/study-set}" href="#">Create Study Set</a>
                     </li>
-                    <li>
-                        <a class="nav-link" aria-current="page" sec:authorize="hasAuthority('ADMIN')"
-                           th:href="@{/h2-console}" href="#">H2 console</a>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/card}">Add card</a>
                     </li>
                 </ul>
                 <a class="me-2" th:href="@{/user}">
@@ -50,10 +47,7 @@
                                       d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                             </svg>
                         </div>
-
-                        <div th:text="${#authentication.name}">
-                            The value of the "name" property of the authentication object should appear here.
-                        </div>
+                        <div th:text="${#authentication.name}"></div>
                     </form>
                 </a>
                 <a class="nav-link me-2" aria-current="page" th:href="@{/logout}" href="#">Logout</a>
