@@ -42,7 +42,7 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    @Profile("dev")
+    @Profile({"dev","test"})
     public PasswordEncoder devEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
